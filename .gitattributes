@@ -1,2 +1,9 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+* text eol=lf
+.editorconfig export-ignore
+.gitattributes export-ignore
+toggle-ctrl_build_changelog.md export-ignore
+toggle-ctrl_changelog_de.md export-ignore
+LICENSE export-ignore
+README.md export-ignore
