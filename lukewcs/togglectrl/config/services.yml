@@ -1,0 +1,16 @@
+services:
+    lukewcs.togglectrl.listener:
+        class: lukewcs\togglectrl\event\listener
+        arguments:
+            - '@config'
+            - '@template'
+        tags:
+            - { name: event.listener }
+    lukewcs.togglectrl.controller.acp:
+        class: lukewcs\togglectrl\controller\acp_togglectrl_controller
+        arguments:
+            - '@language'
+            - '@template'
+            - '@request'
+            - '@config'
+            - '@ext.manager' 

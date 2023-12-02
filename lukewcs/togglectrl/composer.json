@@ -1,0 +1,27 @@
+{
+    "name": "lukewcs/togglectrl",
+    "type": "phpbb-extension",
+    "description": "toggle control",
+    "homepage": "",
+    "version": "1.0.0-b1",
+    "time": "2023-11-26",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "LukeWCS",
+            "homepage": "https://github.com/LukeWCS",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0,<8.4.0@dev",
+        "composer/installers": "~1.0.0"
+    },
+    "extra": {
+        "display-name": "Toggle Control",
+        "lang-min-ver": "1.0.0",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.2.11,<3.4.0@dev"
+        }
+    }
+}
