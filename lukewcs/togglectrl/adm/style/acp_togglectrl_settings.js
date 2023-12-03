@@ -25,10 +25,17 @@ function setState() {
 	);
 };
 
+function formReset() {
+	setTimeout(function() {
+		setState();
+	});
+};
+
 $(window).ready(function () {
 	setState();
 
-	$('input[name="togglectrl_enabled"]').on('change', setState);
+	$('input[name="togglectrl_enabled"]')	.on('change', setState);
+	$('#togglectrl_form')					.on('reset'	, formReset);
 });
 
 })();	// IIFE end

@@ -2,9 +2,9 @@
     "name": "lukewcs/togglectrl",
     "type": "phpbb-extension",
     "description": "toggle control",
-    "homepage": "",
-    "version": "1.0.0-b1",
-    "time": "2023-11-26",
+    "homepage": "Allows you to centrally specify which switch style extensions should use for yes/no switches, provided the extensions in question support this setting.",
+    "version": "1.0.0-b2",
+    "time": "2023-12-03",
     "license": "GPL-2.0-only",
     "authors": [
         {

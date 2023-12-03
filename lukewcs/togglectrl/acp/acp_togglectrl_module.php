@@ -21,11 +21,10 @@ class acp_togglectrl_module
 		global $phpbb_container;
 
 		$language = $phpbb_container->get('language');
-
-		$this->page_title = $language->lang('TOGGLECTRL_NAV_TITLE') . ' - ' . $language->lang('TOGGLECTRL_NAV_CONFIG');
-		$acp_controller = $phpbb_container->get('lukewcs.togglectrl.controller.acp');
-
 		$this->tpl_name = 'acp_togglectrl_settings';
+		$this->page_title = $language->lang('TOGGLECTRL_NAV_TITLE') . ' - ' . $language->lang('TOGGLECTRL_NAV_CONFIG');
+
+		$acp_controller = $phpbb_container->get('lukewcs.togglectrl.controller.acp');
 		$acp_controller->set_page_url($this->u_action);
 		$acp_controller->module_settings();
 	}

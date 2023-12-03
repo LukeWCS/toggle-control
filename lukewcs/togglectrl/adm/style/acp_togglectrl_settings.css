@@ -1,3 +1,28 @@
+/* GENERAL */
+
+.togglectrl_footer {
+	margin-top: 1em;
+	text-align: center;
+	font-size: .75em;
+}
+
+/* SETTINGS */
+
+fieldset legend {
+	top: 0;
+	margin-left: -11px;
+	padding: 2px 10px;
+	border-radius: 5px 5px 0 0;
+	border-top: inherit;
+	border-left: inherit;
+	background-color: inherit;
+}
+
+fieldset dt label,
+fieldset dd label {
+	cursor: inherit;
+}
+
 /*
 * phpBB ACP Toggles - A CSS class that makes it easy to display checkboxes as toggles.
 * Source     : https://danklammer.com/articles/simple-css-toggle-switch/
@@ -49,21 +74,7 @@
 	content: "\f00c";
 }
 
-.togglectrl_footer {
-	margin-top: 1em;
-	text-align: center;
-	font-size: .75em;
-}
-
-legend {
-	top: 0;
-	margin-left: -11px;
-	padding: 2px 10px;
-	border-radius: 5px 5px 0 0;
-	border-top: inherit;
-	border-left: inherit;
-	background-color: inherit;
-}
+/* RESPONSIVE */
 
 @media (max-width: 700px) {
 	legend {

@@ -35,7 +35,7 @@ class listener implements EventSubscriberInterface
 		];
 	}
 
-	public function generate_template_vars($event)
+	public function generate_template_vars()
 	{
 		if ($this->config['togglectrl_enabled'])
 		{
