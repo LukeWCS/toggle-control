@@ -18,8 +18,7 @@ fieldset legend {
 	background-color: inherit;
 }
 
-fieldset dt label,
-fieldset dd label {
+fieldset dt label {
 	cursor: inherit;
 }
 

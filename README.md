@@ -1,5 +1,5 @@
 ## Toggle Control
-Extension for phpBB - Allows you to centrally specify which switch style extensions should use for yes/no switches, provided the extensions in question support this setting.
+Extension for phpBB - Makes it possible to decide centrally for all extensions which visual style should be used for yes/no switches, provided extensions support Toggle Control.
 
 [![Build Status](https://github.com/LukeWCS/toggle-control/workflows/Tests/badge.svg)](https://github.com/LukeWCS/toggle-control/actions)
 

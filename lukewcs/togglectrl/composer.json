@@ -1,10 +1,10 @@
 {
     "name": "lukewcs/togglectrl",
     "type": "phpbb-extension",
-    "description": "toggle control",
-    "homepage": "Allows you to centrally specify which switch style extensions should use for yes/no switches, provided the extensions in question support this setting.",
-    "version": "1.0.0-b2",
-    "time": "2023-12-03",
+    "description": "Makes it possible to decide centrally for all extensions which visual style should be used for yes/no switches, provided extensions support Toggle Control.",
+    "homepage": "https://github.com/LukeWCS/toggle-control",
+    "version": "1.0.0-b3",
+    "time": "2023-12-04",
     "license": "GPL-2.0-only",
     "authors": [
         {

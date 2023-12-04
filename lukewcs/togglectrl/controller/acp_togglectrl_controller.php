@@ -68,7 +68,9 @@ class acp_togglectrl_controller
 			'TOGGLECTRL_NOTES'				=> $notes,
 
 			'TOGGLECTRL_ENABLED'			=> $this->config['togglectrl_enabled'],
+		] + (!$this->config['togglectrl_enabled'] ? [
 			'TOGGLECTRL_TYPE'				=> $this->config['togglectrl_type'],
+		] : []) + [
 			'TOGGLECTRL_TYPE_OPTIONS' => [
 				'TOGGLECTRL_TYPE_TOGGLE'	=> 'toggle',
 				'TOGGLECTRL_TYPE_CHECKBOX'	=> 'checkbox',
