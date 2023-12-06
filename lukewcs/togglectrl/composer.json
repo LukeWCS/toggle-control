@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Makes it possible to decide centrally for all extensions which visual style should be used for yes/no switches, provided extensions support Toggle Control.",
     "homepage": "https://github.com/LukeWCS/toggle-control",
-    "version": "1.0.0-b3",
-    "time": "2023-12-04",
+    "version": "1.0.0-b4",
+    "time": "2023-12-06",
     "license": "GPL-2.0-only",
     "authors": [
         {

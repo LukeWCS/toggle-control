@@ -1,3 +1,10 @@
+### 1.0.0-b4
+* Release (2023-12-)
+* Template:
+  * Bei der Optionsgruppe von `togglectrl_type` die ID entfernt.
+* JS:
+  * Funktion hinzugefügt, mit der eine Optionsgruppe anhand des Element-Namens abgeblendet werden kann. Somit keine ID mehr notwendig.
+
 #### 1.0.0-b3
 * Durch den Controller wurde die Template Variable `TOGGLECTRL_TYPE` unnötig doppelt generiert, wenn TC aktiv ist.
 * `composer.json` korrigiert und URL hinzugefügt.

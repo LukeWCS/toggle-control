@@ -17,13 +17,14 @@ var constants = Object.freeze({
 });
 
 function setState() {
+	dimOptionGroup('togglectrl_type', !$('[name="togglectrl_enabled"]').prop('checked'));
+};
+
+function dimOptionGroup(elememtName, dimCondition) {
 	var c = constants;
 
-	$('#togglectrl_opt_type').css('opacity', (
-			$('input[name="togglectrl_enabled"]').prop('checked')
-		) ? c.OpacityEnabled : c.OpacityDisabled
-	);
-};
+	$('[name="' + elememtName + '"]').parents('dl').css('opacity', dimCondition ? c.OpacityDisabled : c.OpacityEnabled);
+}
 
 function formReset() {
 	setTimeout(function() {
@@ -34,8 +35,8 @@ function formReset() {
 $(window).ready(function () {
 	setState();
 
-	$('input[name="togglectrl_enabled"]')	.on('change', setState);
-	$('#togglectrl_form')					.on('reset'	, formReset);
+	$('[name="togglectrl_enabled"]')	.on('change', setState);
+	$('#togglectrl_form')				.on('reset'	, formReset);
 });
 
 })();	// IIFE end
