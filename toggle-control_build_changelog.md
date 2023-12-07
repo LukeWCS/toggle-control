@@ -1,5 +1,8 @@
+### 1.0.0
+* Release (2023-12-07)
+* Versionsprüfung hinzugefügt.
+
 ### 1.0.0-b4
-* Release (2023-12-)
 * Template:
   * Bei der Optionsgruppe von `togglectrl_type` die ID entfernt.
 * JS:
