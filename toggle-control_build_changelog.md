@@ -4,9 +4,9 @@
 
 ### 1.0.0-b4
 * Template:
-  * Bei der Optionsgruppe von `togglectrl_type` die ID entfernt.
+  * Bei allen Optionsgruppen die ID entfernt, die für die Abblenden-Funktion benötigt wurde.
 * JS:
-  * Funktion hinzugefügt, mit der eine Optionsgruppe anhand des Element-Namens abgeblendet werden kann. Somit keine ID mehr notwendig.
+  * Funktion hinzugefügt, mit der eine Optionsgruppe anhand des Element-Namens abgeblendet werden kann. Somit keine ID im Template mehr notwendig.
 
 #### 1.0.0-b3
 * Durch den Controller wurde die Template Variable `TOGGLECTRL_TYPE` unnötig doppelt generiert, wenn TC aktiv ist.
