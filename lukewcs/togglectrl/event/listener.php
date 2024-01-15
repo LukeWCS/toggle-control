@@ -39,9 +39,7 @@ class listener implements EventSubscriberInterface
 	{
 		if ($this->config['togglectrl_enabled'])
 		{
-			$this->template->assign_vars([
-				'TOGGLECTRL_TYPE' => $this->config['togglectrl_type'],
-			]);
+			$this->template->assign_var('TOGGLECTRL_TYPE', $this->config['togglectrl_type']);
 		}
 	}
 }

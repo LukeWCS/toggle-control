@@ -20,8 +20,8 @@ class v_1_0_0 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return [
-			['config.add', ['togglectrl_enabled', 1]],
-			['config.add', ['togglectrl_type', 'toggle']],
+			['config.add', ['togglectrl_enabled'	, 1]],
+			['config.add', ['togglectrl_type'		, 'toggle']],
 			['module.add', [
 				'acp',
 				'ACP_CAT_DOT_MODS',

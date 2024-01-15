@@ -7,11 +7,11 @@
 *
 */
 
-(function () {	// IIFE start
+(function ($) {	// IIFE start
 
 'use strict';
 
-var constants = Object.freeze({
+const constants = Object.freeze({
 	OpacityEnabled	: '1.0',
 	OpacityDisabled	: '0.35',
 });
@@ -21,7 +21,7 @@ function setState() {
 };
 
 function dimOptionGroup(elememtName, dimCondition) {
-	var c = constants;
+	const c = constants;
 
 	$('[name="' + elememtName + '"]').parents('dl').css('opacity', dimCondition ? c.OpacityDisabled : c.OpacityEnabled);
 }
@@ -32,11 +32,18 @@ function formReset() {
 	});
 };
 
+function disableEnter(e) {
+	if (e.key == 'Enter' && e.target.type != 'textarea') {
+		return false;
+	}
+};
+
 $(window).ready(function () {
 	setState();
 
-	$('[name="togglectrl_enabled"]')	.on('change', setState);
-	$('#togglectrl_form')				.on('reset'	, formReset);
+	$('#togglectrl_settings')			.on('keypress'	, disableEnter);
+	$('#togglectrl_settings')			.on('reset'		, formReset);
+	$('[name="togglectrl_enabled"]')	.on('change'	, setState);
 });
 
-})();	// IIFE end
+})(jQuery);	// IIFE end

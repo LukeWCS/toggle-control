@@ -66,7 +66,6 @@ class acp_togglectrl_controller
 
 		$this->template->assign_vars([
 			'TOGGLECTRL_NOTES'				=> $notes,
-
 			'TOGGLECTRL_ENABLED'			=> $this->config['togglectrl_enabled'],
 		] + (!$this->config['togglectrl_enabled'] ? [
 			'TOGGLECTRL_TYPE'				=> $this->config['togglectrl_type'],
@@ -89,7 +88,7 @@ class acp_togglectrl_controller
 	private function set_meta_template_vars(string $tpl_prefix): void
 	{
 		$this->template->assign_vars([
-			$tpl_prefix . '_METADATA'	=> [
+			$tpl_prefix . '_METADATA' => [
 				'EXT_NAME'		=> $this->metadata['extra']['display-name'],
 				'EXT_VER'		=> $this->language->lang($tpl_prefix . '_VERSION_STRING', $this->metadata['version']),
 				'LANG_DESC'		=> $this->language->lang($tpl_prefix . '_LANG_DESC'),
@@ -100,18 +99,12 @@ class acp_togglectrl_controller
 		]);
 	}
 
-	// Determine the version of the language pack with fallback to 0.0.0
-	private function get_lang_ver(string $lang_ext_ver): string
-	{
-		preg_match('/^([0-9]+\.[0-9]+\.[0-9]+)/', $this->language->lang($lang_ext_ver), $matches);
-		return ($matches[1] ?? '0.0.0');
-	}
-
 	// Check the language pack version for the minimum version and generate notice if outdated
 	private function lang_ver_check_msg(string $lang_version_var, string $lang_outdated_var): string
 	{
 		$lang_outdated_msg = '';
-		$ext_lang_ver = $this->get_lang_ver($lang_version_var);
+		preg_match('/^([0-9]+\.[0-9]+\.[0-9]+)/', $this->language->lang($lang_version_var), $matches);
+		$ext_lang_ver = $matches[1] ?? '0.0.0';
 		$ext_lang_min_ver = $this->metadata['extra']['lang-min-ver'];
 
 		if (phpbb_version_compare($ext_lang_ver, $ext_lang_min_ver, '<'))

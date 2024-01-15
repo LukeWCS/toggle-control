@@ -22,6 +22,11 @@ fieldset dt label {
 	cursor: inherit;
 }
 
+fieldset p.submit-buttons {
+	margin-top: 0;
+	padding: 0 4px 4px 4px;
+}
+
 /*
 * phpBB ACP Toggles - A CSS class that makes it easy to display checkboxes as toggles.
 * Source     : https://danklammer.com/articles/simple-css-toggle-switch/
