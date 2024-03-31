@@ -1,3 +1,15 @@
+### 1.0.3
+* Release (2024-03-31)
+* Fix: Kleineres Problem mit Responsive behoben. Im CSS wurde eine falsche Formular-ID angesprochen.
+* ACP-Template:
+  * Aktualisiertes `select()` Makro von FAR 1.0.0 übernommen. Damit ist es nicht länger nötig, neben dem Array noch zusätzlich eine Konfig-Variable übergeben zu müssen, da das Array jetzt auch die Information enthält, welche Elemente selektiert sind. Ausserdem kann mit dem Makro jetzt auch ein Mehrfachauswahl-Pulldown erzeugt werden.
+* ACP-Controller:
+  * Die Erzeugung des Arrays für Pulldown-Menüs an das neue Makro angepasst.
+* phpBB Voraussetzung: 
+  * Min. 3.2.11 -> 3.3.0.
+* PHP Voraussetzung: 
+  * Min. 7.1.0 -> 7.1.3.
+
 ### 1.0.2
 * Release (2024-01-15)
 * PHP:

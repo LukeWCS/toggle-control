@@ -1,3 +1,10 @@
+### 1.1.0
+(2024-03-31)
+
+* Die Unterstützung für phpBB 3.2 wurde aufgegeben, Minimum ist jetzt phpBB 3.3.0.
+* Fix: Kleineres Problem mit Responsive behoben, bei dem es zuwenig vertikalen Abstand zwischen den Zellen gab, da eine falsche ID angesprochen wurde.
+* Aktualisiertes `select()` Makro von FAR 1.0.0 übernommen.
+
 ### 1.0.2
 (2024-01-15)
 

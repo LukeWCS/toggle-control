@@ -6,6 +6,9 @@
 * @copyright (c) 2023, LukeWCS, https://www.wcsaga.org/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
+* Note: This extension is 100% genuine handcraft and consists of selected
+*       natural raw materials. There was no AI involved in making it.
+*
 */
 
 /**
@@ -35,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 //
 // Some characters you may want to copy&paste:
 // ’ « » “ ” … „ “
-//
+
 $lang = array_merge($lang, [
 	'TOGGLECTRL_CONFIG_TITLE'		=> 'Toggle Control',
 	'TOGGLECTRL_CONFIG_DESC'		=> 'Here you can change the settings for the <strong>%s</strong> extension.',

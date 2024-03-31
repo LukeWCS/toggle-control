@@ -5,6 +5,9 @@
 * @copyright (c) 2023, LukeWCS, https://www.wcsaga.org/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
+* Note: This extension is 100% genuine handcraft and consists of selected
+*       natural raw materials. There was no AI involved in making it.
+*
 */
 
 (function ($) {	// IIFE start
@@ -17,13 +20,13 @@ const constants = Object.freeze({
 });
 
 function setState() {
-	dimOptionGroup('togglectrl_type', !$('[name="togglectrl_enabled"]').prop('checked'));
+	dimOptionGroup('[name="togglectrl_type"]', !$('[name="togglectrl_enabled"]').prop('checked'));
 };
 
-function dimOptionGroup(elememtName, dimCondition) {
+function dimOptionGroup(selector, dimCondition) {
 	const c = constants;
 
-	$('[name="' + elememtName + '"]').parents('dl').css('opacity', dimCondition ? c.OpacityDisabled : c.OpacityEnabled);
+	$(selector).parents('dl').css('opacity', dimCondition ? c.OpacityDisabled : c.OpacityEnabled);
 }
 
 function formReset() {

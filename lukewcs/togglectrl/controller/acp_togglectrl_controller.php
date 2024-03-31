@@ -6,6 +6,9 @@
 * @copyright (c) 2023, LukeWCS, https://www.wcsaga.org/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
+* Note: This extension is 100% genuine handcraft and consists of selected
+*       natural raw materials. There was no AI involved in making it.
+*
 */
 
 namespace lukewcs\togglectrl\controller;
@@ -67,15 +70,17 @@ class acp_togglectrl_controller
 		$this->template->assign_vars([
 			'TOGGLECTRL_NOTES'				=> $notes,
 			'TOGGLECTRL_ENABLED'			=> $this->config['togglectrl_enabled'],
-		] + (!$this->config['togglectrl_enabled'] ? [
-			'TOGGLECTRL_TYPE'				=> $this->config['togglectrl_type'],
-		] : []) + [
-			'TOGGLECTRL_TYPE_OPTIONS' => [
-				'TOGGLECTRL_TYPE_TOGGLE'	=> 'toggle',
-				'TOGGLECTRL_TYPE_CHECKBOX'	=> 'checkbox',
-				'TOGGLECTRL_TYPE_RADIO'		=> 'radio',
-			],
+			'TOGGLECTRL_TYPES' 				=> $this->select_struct($this->config['togglectrl_type'], [
+				['TOGGLECTRL_TYPE_TOGGLE'	, 'toggle'],
+				['TOGGLECTRL_TYPE_CHECKBOX'	, 'checkbox'],
+				['TOGGLECTRL_TYPE_RADIO'	, 'radio'],
+			]),
 		]);
+
+		if (!$this->config['togglectrl_enabled'])
+		{
+			$this->template->assign_var('TOGGLECTRL_TYPE', $this->config['togglectrl_type']);
+		}
 
 		add_form_key('togglectrl');
 	}
@@ -83,6 +88,23 @@ class acp_togglectrl_controller
 	public function set_page_url(string $u_action): void
 	{
 		$this->u_action = $u_action;
+	}
+
+	private function select_struct($value, array $options_params): array
+	{
+		$is_array_value = is_array($value);
+		$options = [];
+		foreach ($options_params as $params)
+		{
+			$options[] = [
+				'label'		=> $params[0],
+				'value'		=> $params[1],
+				'selected'	=> $is_array_value ? in_array($params[1], $value) : $params[1] == $value,
+				'bold'		=> $params[2] ?? false,
+			];
+		}
+
+		return $options;
 	}
 
 	private function set_meta_template_vars(string $tpl_prefix): void
