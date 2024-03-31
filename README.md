@@ -4,5 +4,5 @@ Extension for phpBB - Makes it possible to decide centrally for all extensions w
 [![Build Status](https://github.com/LukeWCS/toggle-control/workflows/Tests/badge.svg)](https://github.com/LukeWCS/toggle-control/actions)
 
 ### Requirements
-* phpBB 3.2.11 up to and including phpBB 3.3
-* PHP 7.1 up to and including PHP 8.3
+* phpBB 3.3.0 - 3.3.x
+* PHP 7.1.3 - 8.3.x
