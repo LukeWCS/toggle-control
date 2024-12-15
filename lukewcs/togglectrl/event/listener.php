@@ -17,8 +17,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	protected $config;
-	protected $template;
+	protected object $config;
+	protected object $template;
 
 	public function __construct(
 		\phpbb\config\config $config,
@@ -29,7 +29,7 @@ class listener implements EventSubscriberInterface
 		$this->template	= $template;
 	}
 
-	public static function getSubscribedEvents()
+	public static function getSubscribedEvents(): array
 	{
 		return [
 			'core.adm_page_header'						=> 'generate_template_vars',
@@ -38,7 +38,7 @@ class listener implements EventSubscriberInterface
 		];
 	}
 
-	public function generate_template_vars()
+	public function generate_template_vars(): void
 	{
 		if ($this->config['togglectrl_enabled'])
 		{

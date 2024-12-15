@@ -5,4 +5,4 @@ Extension for phpBB - Makes it possible to decide centrally for all extensions w
 
 ### Requirements
 * phpBB 3.3.0 - 3.3.x
-* PHP 7.1.3 - 8.3.x
+* PHP 7.4.0 - 8.4.x

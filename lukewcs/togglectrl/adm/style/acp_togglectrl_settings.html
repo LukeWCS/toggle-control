@@ -17,7 +17,7 @@
 <a id="maincontent"></a>
 
 <h1>{{ lang('TOGGLECTRL_CONFIG_TITLE') }}</h1>
-<p>{{ lang('TOGGLECTRL_CONFIG_DESC', TOGGLECTRL_METADATA.EXT_NAME) }}</p>
+<p>{{ lang('TOGGLECTRL_CONFIG_DESC', TOGGLECTRL_METADATA.ext_name) }}</p>
 
 {{ _self.notes(TOGGLECTRL_NOTES) }}
 
@@ -77,7 +77,7 @@
 {% macro select(name, options, multiple = null, size = null) -%}
 	<select name="{{ name }}{{ multiple ? '[]' }}"{{
 		(size !== null ? ' size="' ~ size ~ '"') ~
-		((multiple ?? false) ? ' multiple')
+		(multiple ? ' multiple')
 	}}>
 		{% for opt in options %}
 			<option value="{{ opt.value }}"{{
@@ -99,8 +99,11 @@
 {% endmacro %}
 
 {% macro footer(metadata) %}
-	<p class="{{ metadata.CLASS  }}">
-		{{ metadata.EXT_NAME }} {{ metadata.EXT_VER }} &copy; LukeWCS<br>
-		{{ metadata.LANG_DESC|e('html') }} {{ metadata.LANG_VER|e('html') }} &bull; {{ metadata.LANG_AUTHOR|e('html') }}
+	<p class="{{ metadata.class }}">
+		{{ metadata.ext_name }} {{ metadata.ext_ver }} &copy; {{ metadata.ext_copyright }}
+		{% if metadata.lang_ver is defined %}
+			<br>
+			{{ metadata.lang_desc|e('html') }} {{ metadata.lang_ver|e('html') }} &bull; {{ metadata.lang_author|e('html') }}
+		{% endif %}
 	</p>
 {% endmacro %}

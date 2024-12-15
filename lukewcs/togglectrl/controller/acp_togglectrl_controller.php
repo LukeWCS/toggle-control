@@ -15,14 +15,14 @@ namespace lukewcs\togglectrl\controller;
 
 class acp_togglectrl_controller
 {
-	protected $language;
-	protected $template;
-	protected $request;
-	protected $config;
-	protected $ext_manager;
-	protected $metadata;
+	protected object $language;
+	protected object $template;
+	protected object $request;
+	protected object $config;
+	protected object $ext_manager;
 
-	public $u_action;
+	protected array  $metadata;
+	public    string $u_action;
 
 	public function __construct(
 		\phpbb\language\language $language,
@@ -46,7 +46,7 @@ class acp_togglectrl_controller
 		$notes = [];
 
 		$this->language->add_lang(['acp_togglectrl', 'acp_togglectrl_lang_author'], 'lukewcs/togglectrl');
-		$this->set_meta_template_vars('TOGGLECTRL');
+		$this->set_meta_template_vars('TOGGLECTRL', 'LukeWCS');
 
 		if ($this->request->is_set_post('submit'))
 		{
@@ -67,20 +67,19 @@ class acp_togglectrl_controller
 			$notes[] = $lang_outdated_msg;
 		}
 
-		$this->template->assign_vars([
+		$template_vars = [
 			'TOGGLECTRL_NOTES'				=> $notes,
-			'TOGGLECTRL_ENABLED'			=> $this->config['togglectrl_enabled'],
-			'TOGGLECTRL_TYPES' 				=> $this->select_struct($this->config['togglectrl_type'], [
-				['TOGGLECTRL_TYPE_TOGGLE'	, 'toggle'],
-				['TOGGLECTRL_TYPE_CHECKBOX'	, 'checkbox'],
-				['TOGGLECTRL_TYPE_RADIO'	, 'radio'],
+			'TOGGLECTRL_ENABLED'			=> (bool) $this->config['togglectrl_enabled'],
+			'TOGGLECTRL_TYPES' 				=> $this->select_struct((string) $this->config['togglectrl_type'], [
+				'TOGGLECTRL_TYPE_TOGGLE'	=> 'toggle',
+				'TOGGLECTRL_TYPE_CHECKBOX'	=> 'checkbox',
+				'TOGGLECTRL_TYPE_RADIO'		=> 'radio',
 			]),
-		]);
-
-		if (!$this->config['togglectrl_enabled'])
-		{
-			$this->template->assign_var('TOGGLECTRL_TYPE', $this->config['togglectrl_type']);
-		}
+		];
+		$template_vars += !$this->config['togglectrl_enabled'] ? [
+			'TOGGLECTRL_TYPE'				=> (string) $this->config['togglectrl_type'],
+		] : [];
+		$this->template->assign_vars($template_vars);
 
 		add_form_key('togglectrl');
 	}
@@ -90,43 +89,60 @@ class acp_togglectrl_controller
 		$this->u_action = $u_action;
 	}
 
-	private function select_struct($value, array $options_params): array
+	private function select_struct($cfg_value, array $options): array
 	{
-		$is_array_value = is_array($value);
-		$options = [];
-		foreach ($options_params as $params)
+		$options_tpl = [];
+
+		foreach ($options as $opt_key => $opt_value)
 		{
-			$options[] = [
-				'label'		=> $params[0],
-				'value'		=> $params[1],
-				'selected'	=> $is_array_value ? in_array($params[1], $value) : $params[1] == $value,
-				'bold'		=> $params[2] ?? false,
+			if (!is_array($opt_value))
+			{
+				$opt_value = [$opt_value];
+			}
+			$options_tpl[] = [
+				'label'		=> $opt_key,
+				'value'		=> $opt_value[0],
+				'bold'		=> $opt_value[1] ?? false,
+				'selected'	=> is_array($cfg_value) ? in_array($opt_value[0], $cfg_value) : $opt_value[0] == $cfg_value,
 			];
 		}
 
-		return $options;
+		return $options_tpl;
 	}
 
-	private function set_meta_template_vars(string $tpl_prefix): void
+	private function set_meta_template_vars(string $tpl_prefix, string $copyright): void
 	{
-		$this->template->assign_vars([
-			$tpl_prefix . '_METADATA' => [
-				'EXT_NAME'		=> $this->metadata['extra']['display-name'],
-				'EXT_VER'		=> $this->language->lang($tpl_prefix . '_VERSION_STRING', $this->metadata['version']),
-				'LANG_DESC'		=> $this->language->lang($tpl_prefix . '_LANG_DESC'),
-				'LANG_VER'		=> $this->language->lang($tpl_prefix . '_VERSION_STRING', $this->language->lang($tpl_prefix . '_LANG_VER')),
-				'LANG_AUTHOR'	=> $this->language->lang($tpl_prefix . '_LANG_AUTHOR'),
-				'CLASS'			=> strtolower($tpl_prefix) . '_footer',
-			],
-		]);
+		$template_vars = [
+			'ext_name'		=> $this->metadata['extra']['display-name'],
+			'ext_ver'		=> $this->language->lang($tpl_prefix . '_VERSION_STRING', $this->metadata['version']),
+			'ext_copyright'	=> $copyright,
+			'class'			=> strtolower($tpl_prefix) . '_footer',
+		];
+		$template_vars += $this->language->is_set($tpl_prefix . '_LANG_VER') ? [
+			'lang_desc'		=> $this->language->lang($tpl_prefix . '_LANG_DESC'),
+			'lang_ver'		=> $this->language->lang($tpl_prefix . '_VERSION_STRING', $this->language->lang($tpl_prefix . '_LANG_VER')),
+			'lang_author'	=> $this->language->lang($tpl_prefix . '_LANG_AUTHOR'),
+		] : [];
+
+		$this->template->assign_vars([$tpl_prefix . '_METADATA' => $template_vars]);
 	}
 
-	// Check the language pack version for the minimum version and generate notice if outdated
+	/*
+		Determine the version of the language pack with fallback to 0.0.0
+	*/
+	private function get_lang_ver(string $lang_ext_ver): string
+	{
+		preg_match('/^([0-9]+\.[0-9]+\.[0-9]+.*)/', $this->language->lang($lang_ext_ver), $matches);
+		return ($matches[1] ?? '0.0.0');
+	}
+
+	/*
+		Check the language pack version for the minimum version and generate notice if outdated
+	*/
 	private function lang_ver_check_msg(string $lang_version_var, string $lang_outdated_var): string
 	{
 		$lang_outdated_msg = '';
-		preg_match('/^([0-9]+\.[0-9]+\.[0-9]+)/', $this->language->lang($lang_version_var), $matches);
-		$ext_lang_ver = $matches[1] ?? '0.0.0';
+		$ext_lang_ver = $this->get_lang_ver($lang_version_var);
 		$ext_lang_min_ver = $this->metadata['extra']['lang-min-ver'];
 
 		if (phpbb_version_compare($ext_lang_ver, $ext_lang_min_ver, '<'))
@@ -135,7 +151,7 @@ class acp_togglectrl_controller
 			{
 				$lang_outdated_msg = $this->language->lang($lang_outdated_var);
 			}
-			else // Fallback if the current language package does not yet have the required variable.
+			else /* Fallback if the current language package does not yet have the required variable. */
 			{
 				$lang_outdated_msg = 'Note: The language pack for the extension <strong>%1$s</strong> is no longer up-to-date. (installed: %2$s / needed: %3$s)';
 			}

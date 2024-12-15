@@ -10,7 +10,7 @@
 *
 */
 
-(function ($) {	// IIFE start
+(function ($) {
 
 'use strict';
 
@@ -49,4 +49,4 @@ $(window).ready(function () {
 	$('[name="togglectrl_enabled"]')	.on('change'	, setState);
 });
 
-})(jQuery);	// IIFE end
+})(jQuery);
