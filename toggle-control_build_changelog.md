@@ -3,7 +3,7 @@
 * PHP:
   * Code verwendet jetzt 7.4 Features.
   * Code strikter gestaltet.
-* ext.php`/`composer.json` angepasst:
+* `ext.php`/`composer.json` angepasst:
   * PHP: 7.1.3-8.3.x -> 7.4.0-8.4.x
 * ACP-Template:
   * Aktuelles Makro `select()` von EMP 3.0 übernommen.
