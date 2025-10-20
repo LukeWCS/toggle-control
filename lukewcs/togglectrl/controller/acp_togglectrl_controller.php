@@ -15,30 +15,18 @@ namespace lukewcs\togglectrl\controller;
 
 class acp_togglectrl_controller
 {
-	protected object $language;
-	protected object $template;
-	protected object $request;
-	protected object $config;
-	protected object $ext_manager;
-
 	protected array  $metadata;
 	public    string $u_action;
 
 	public function __construct(
-		\phpbb\language\language $language,
-		\phpbb\template\template $template,
-		\phpbb\request\request $request,
-		\phpbb\config\config $config,
-		\phpbb\extension\manager $ext_manager
+		protected \phpbb\language\language $language,
+		protected \phpbb\template\template $template,
+		protected \phpbb\request\request $request,
+		protected \phpbb\config\config $config,
+		protected \phpbb\extension\manager $ext_manager,
 	)
 	{
-		$this->language		= $language;
-		$this->template		= $template;
-		$this->request		= $request;
-		$this->config		= $config;
-		$this->ext_manager	= $ext_manager;
-
-		$this->metadata		= $this->ext_manager->create_extension_metadata_manager('lukewcs/togglectrl')->get_metadata('all');
+		$this->metadata = $this->ext_manager->create_extension_metadata_manager('lukewcs/togglectrl')->get_metadata('all');
 	}
 
 	public function module_settings(): void
@@ -133,6 +121,7 @@ class acp_togglectrl_controller
 	private function get_lang_ver(string $lang_ext_ver): string
 	{
 		preg_match('/^([0-9]+\.[0-9]+\.[0-9]+.*)/', $this->language->lang($lang_ext_ver), $matches);
+
 		return ($matches[1] ?? '0.0.0');
 	}
 

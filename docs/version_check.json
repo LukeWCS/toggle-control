@@ -7,8 +7,8 @@
             "security": false
         },
         "3.3": {
-            "current": "1.1.1",
-            "announcement": "https://github.com/LukeWCS/toggle-control/releases/tag/1.1.1",
+            "current": "1.2.0",
+            "announcement": "https://github.com/LukeWCS/toggle-control/releases/tag/1.2.0",
             "eol": null,
             "security": false
         }

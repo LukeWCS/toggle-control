@@ -17,16 +17,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	protected object $config;
-	protected object $template;
-
 	public function __construct(
-		\phpbb\config\config $config,
-		\phpbb\template\template $template
+		protected \phpbb\config\config $config,
+		protected \phpbb\template\template $template,
 	)
 	{
-		$this->config	= $config;
-		$this->template	= $template;
 	}
 
 	public static function getSubscribedEvents(): array
@@ -42,7 +37,7 @@ class listener implements EventSubscriberInterface
 	{
 		if ($this->config['togglectrl_enabled'])
 		{
-			$this->template->assign_var('TOGGLECTRL_TYPE', $this->config['togglectrl_type']);
+			$this->template->assign_var('TOGGLECTRL_TYPE', (string) $this->config['togglectrl_type']);
 		}
 	}
 }

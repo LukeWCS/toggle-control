@@ -1,3 +1,13 @@
+### 1.2.0
+* Release (2025-10-20)
+* Auf Construktor Property Promotion umgestellt.
+* CSS:
+  * Auf Nested CSS umgestellt.
+  * Auf Kirk-Toggles 2.0 aktualisiert.
+* PHP Voraussetzung: 
+  * Min. 7.4.0 -> 8.0.0.
+* JS überarbeitet.
+
 ### 1.1.1
 * Release (2024-12-15)
 * PHP:

@@ -11,42 +11,40 @@
 */
 
 (function ($) {
+	'use strict';
 
-'use strict';
-
-const constants = Object.freeze({
-	OpacityEnabled	: '1.0',
-	OpacityDisabled	: '0.35',
-});
-
-function setState() {
-	dimOptionGroup('[name="togglectrl_type"]', !$('[name="togglectrl_enabled"]').prop('checked'));
-};
-
-function dimOptionGroup(selector, dimCondition) {
-	const c = constants;
-
-	$(selector).parents('dl').css('opacity', dimCondition ? c.OpacityDisabled : c.OpacityEnabled);
-}
-
-function formReset() {
-	setTimeout(function() {
-		setState();
+	const constants = Object.freeze({
+		OpacityEnabled	: '1.0',
+		OpacityDisabled	: '0.35',
 	});
-};
 
-function disableEnter(e) {
-	if (e.key == 'Enter' && e.target.type != 'textarea') {
-		return false;
+	function setState() {
+		dimOptionGroup('[name="togglectrl_type"]', !$('[name="togglectrl_enabled"]').prop('checked'));
+	};
+
+	function dimOptionGroup(selector, dimCondition) {
+		const c = constants;
+
+		$(selector).parents('dl').css('opacity', dimCondition ? c.OpacityDisabled : c.OpacityEnabled);
 	}
-};
 
-$(window).ready(function () {
-	setState();
+	function formReset() {
+		setTimeout(function() {
+			setState();
+		});
+	};
 
-	$('#togglectrl_settings')			.on('keypress'	, disableEnter);
-	$('#togglectrl_settings')			.on('reset'		, formReset);
-	$('[name="togglectrl_enabled"]')	.on('change'	, setState);
-});
+	function disableEnter(e) {
+		if (e.key == 'Enter' && e.target.type != 'textarea') {
+			return false;
+		}
+	};
 
+	$(function () {
+		setState();
+
+		$('#togglectrl_settings')			.on('keypress'	, disableEnter);
+		$('#togglectrl_settings')			.on('reset'		, formReset);
+		$('[name="togglectrl_enabled"]')	.on('change'	, setState);
+	});
 })(jQuery);
