@@ -2,7 +2,7 @@
 (2025-10-20)
 
 * Die Voraussetzungen haben sich geändert:
-  * PHP: 8.0.0 - 8.4.x (Bisher: 7.1.3 - 8.3.x)
+  * PHP: 8.0.0 - 8.4.x (Bisher: 7.4.0 - 8.4.x)
 * PHP auf Construktor Property Promotion umgestellt. Weitere Infos dazu: [PHP 8 - Constructor Property Promotion](https://www.phpbb.de/community/viewtopic.php?t=247783)
 * CSS:
   * Auf Nested CSS umgestellt. Weitere Infos dazu: [Nested CSS (verschachteltes CSS)](https://www.phpbb.de/community/viewtopic.php?t=247620)
