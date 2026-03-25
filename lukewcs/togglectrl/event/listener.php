@@ -19,7 +19,8 @@ class listener implements EventSubscriberInterface
 {
 	public function __construct(
 		protected \phpbb\config\config $config,
-		protected \phpbb\template\template $template,
+		// protected \phpbb\template\template $template,
+		protected \phpbb\template\twig\environment $twig_env,
 	)
 	{
 	}
@@ -37,7 +38,8 @@ class listener implements EventSubscriberInterface
 	{
 		if ($this->config['togglectrl_enabled'])
 		{
-			$this->template->assign_var('TOGGLECTRL_TYPE', (string) $this->config['togglectrl_type']);
+			// $this->template->assign_var('TOGGLECTRL_TYPE', (string) $this->config['togglectrl_type']);
+			$this->twig_env->addGlobal('TOGGLECTRL_TYPE', (string) $this->config['togglectrl_type']);
 		}
 	}
 }

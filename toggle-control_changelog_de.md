@@ -1,3 +1,14 @@
+### 1.3.0
+WIP
+
+* Die Voraussetzungen haben sich geändert:
+  * PHP: 8.0.0 - 8.5.x (Bisher: 8.0.0 - 8.4.x)
+* Für Erweiterungen Entwickler ist die Integration der TC Schnittstelle einfacher geworden:
+  * Die Zeile mit der Deklaration für `switch_type` am Anfang des Templates entfällt komplett.
+  * Der dritte Parameter `type` bei `switch()` entfällt bei sämtlichen Schaltern. Somit reduziert sich der Makro Aufruf auf das Nötigste.
+  * Die oben genannten Eigenschaften sind deswegen nicht mehr nötig, da TC jetzt eine echte globale Template Variable generieren kann, die auch im Makro verfügbar ist. Es muss also lediglich das neue `switch()` Makro integriert werden um TC Kompatibilität zu schaffen, um alles Weitere kümmert sich das Makro.
+* Bisher hatte TC unabhängig vom Aktivierungszustand der TC Funktion immer den eingestellten Schalter-Stil angezeigt. Jetzt verhält sich TC konsequent wie jeder andere Erweiterung, das heisst der eingestellte Schalter-Stil wird nur dann angewendet, wenn die TC Funktion auch aktiviert ist.
+
 ### 1.2.0
 (2025-10-20)
 

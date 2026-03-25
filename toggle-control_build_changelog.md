@@ -1,3 +1,14 @@
+#### 1.3.0-b1
+* Optimierung der TC Schnittstelle:
+  * Die Zeile mit der Deklaration für `switch_type` am Anfang des Templates entfällt komplett.
+  * Der dritte Parameter `type` bei `switch()` entfällt bei sämtlichen Schaltern. Somit reduziert sich der Makro Aufruf auf das Nötigste.
+  * Die Template Variable `TOGGLECTRL_TYPE` wird nicht mehr über das Template System lokal generiert, sondern über Twig direkt als globale Variable.
+  * Neues Makro `switch()` das mit der neuen globalen Template Variable arbeitet.
+  * Sämtlicher alter Code ist kurzfristig noch vorhanden, aber deaktiviert.
+* Der eingestellte Schalter-Stil wird nur dann angewendet, wenn die TC Funktion auch aktiviert ist.
+* PHP Voraussetzung: 
+  * Max. 8.4.0 -> 8.5.0.
+
 ### 1.2.0
 * Release (2025-10-20)
 * Auf Construktor Property Promotion umgestellt.

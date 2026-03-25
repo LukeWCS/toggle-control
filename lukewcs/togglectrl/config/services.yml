@@ -3,7 +3,8 @@ services:
         class: lukewcs\togglectrl\event\listener
         arguments:
             - '@config'
-            - '@template'
+            # - '@template'
+            - '@template.twig.environment'
         tags:
             - { name: event.listener }
     lukewcs.togglectrl.controller.acp:
