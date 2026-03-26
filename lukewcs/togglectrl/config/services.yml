@@ -3,7 +3,6 @@ services:
         class: lukewcs\togglectrl\event\listener
         arguments:
             - '@config'
-            # - '@template'
             - '@template.twig.environment'
         tags:
             - { name: event.listener }

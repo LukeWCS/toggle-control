@@ -43,8 +43,8 @@
 	$(function () {
 		setState();
 
-		$('#togglectrl_settings')			.on('keypress'	, disableEnter);
-		$('#togglectrl_settings')			.on('reset'		, formReset);
-		$('[name="togglectrl_enabled"]')	.on('change'	, setState);
+		$('#togglectrl_settings')		.on('keypress'	, disableEnter);
+		$('#togglectrl_settings')		.on('reset'		, formReset);
+		$('[name="togglectrl_enabled"]').on('change'	, setState);
 	});
 })(jQuery);

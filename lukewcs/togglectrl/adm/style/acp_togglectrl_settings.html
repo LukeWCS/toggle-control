@@ -12,8 +12,6 @@
 
 {% INCLUDE 'overall_header.html' %}
 
-{#% set switch_type = TOGGLECTRL_TYPE ?? 'toggle' %#}
-
 <a id="maincontent"></a>
 
 <h1>{{ lang('TOGGLECTRL_CONFIG_TITLE') }}</h1>
@@ -31,7 +29,6 @@
 				<span>{{ lang('TOGGLECTRL_ENABLED_EXP') }}</span>
 			</dt>
 			<dd>
-				{#{ _self.switch('togglectrl_enabled', TOGGLECTRL_ENABLED, switch_type) }#}
 				{{ _self.switch('togglectrl_enabled', TOGGLECTRL_ENABLED) }}
 			</dd>
 		</dl>
@@ -66,9 +63,8 @@
 {% INCLUDECSS '@lukewcs_togglectrl/acp_togglectrl_settings.css' %}
 {% INCLUDEJS '@lukewcs_togglectrl/acp_togglectrl_settings.js' %}
 
-{#% macro switch(name, checked = false, type = 'toggle') -%#}
 {% macro switch(name, checked = false, type = null) -%}
-	{% set type = type ?? TOGGLECTRL_TYPE ?? 'toggle' %}
+	{% set type = type ?? TOGGLECTRL_TYPE ?? 'toggle' -%}
 	{% if type == 'toggle' || type == 'checkbox' -%}
 		<input type="checkbox" class="{{ type }}" name="{{ name }}" value="1"{{ checked ? ' checked' }}>
 	{%- elseif type == 'radio' -%}

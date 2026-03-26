@@ -55,19 +55,6 @@ class acp_togglectrl_controller
 			$notes[] = $lang_outdated_msg;
 		}
 
-		// $template_vars = [
-			// 'TOGGLECTRL_NOTES'				=> $notes,
-			// 'TOGGLECTRL_ENABLED'			=> (bool) $this->config['togglectrl_enabled'],
-			// 'TOGGLECTRL_TYPES' 				=> $this->select_struct((string) $this->config['togglectrl_type'], [
-				// 'TOGGLECTRL_TYPE_TOGGLE'	=> 'toggle',
-				// 'TOGGLECTRL_TYPE_CHECKBOX'	=> 'checkbox',
-				// 'TOGGLECTRL_TYPE_RADIO'		=> 'radio',
-			// ]),
-		// ];
-		// $template_vars += !$this->config['togglectrl_enabled'] ? [
-			// 'TOGGLECTRL_TYPE'				=> (string) $this->config['togglectrl_type'],
-		// ] : [];
-		// $this->template->assign_vars($template_vars);
 		$this->template->assign_vars([
 			'TOGGLECTRL_NOTES'				=> $notes,
 			'TOGGLECTRL_ENABLED'			=> (bool) $this->config['togglectrl_enabled'],
