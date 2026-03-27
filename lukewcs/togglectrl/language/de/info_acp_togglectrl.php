@@ -40,7 +40,7 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” … „ “
 
 $lang = array_merge($lang, [
-	'TOGGLECTRL_NAV_TITLE'		=> 'Schalter Steuerung',
+	'TOGGLECTRL_NAV_TITLE'		=> 'Schiebeschalter Steuerung',
 	'TOGGLECTRL_NAV_CONFIG'		=> 'Einstellungen',
 	'TOGGLECTRL_VERSION_STRING'	=> 'v%s',
 ]);

@@ -40,7 +40,7 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” … „ “
 
 $lang = array_merge($lang, [
-	'TOGGLECTRL_CONFIG_TITLE'		=> 'Schalter Steuerung',
+	'TOGGLECTRL_CONFIG_TITLE'		=> 'Schiebeschalter Steuerung',
 	'TOGGLECTRL_CONFIG_DESC'		=> 'Hier kannst du die Einstellungen für die Erweiterung <strong>%s</strong> ändern.',
 
 	'TOGGLECTRL_SETTINGS_TITLE'		=> 'Einstellungen',
@@ -54,4 +54,5 @@ $lang = array_merge($lang, [
 	'TOGGLECTRL_TYPE_RADIO'			=> 'Radio Knöpfe (phpBB Standard)',
 
 	'TOGGLECTRL_MSG_SAVED_SETTINGS'	=> 'Toggle Control: Einstellungen erfolgreich gespeichert',
+	'TOGGLECTRL_MSG_DISABLED_HINT'	=> 'Hinweis: Die Funktion dieser Erweiterung ist deaktiviert, es gilt der Schalter-Stil Standard der jeweiligen Erweiterungen Entwicker.',
 ]);

@@ -54,4 +54,5 @@ $lang = array_merge($lang, [
 	'TOGGLECTRL_TYPE_RADIO'			=> 'Radio buttons (phpBB default)',
 
 	'TOGGLECTRL_MSG_SAVED_SETTINGS'	=> 'Toggle Control: Settings saved successfully',
+	'TOGGLECTRL_MSG_DISABLED_HINT'	=> 'Note: The function of this extension is disabled, the switch style standard of the respective extension developer applies.',
 ]);

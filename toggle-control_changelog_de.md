@@ -4,10 +4,12 @@
 * Die Voraussetzungen haben sich geändert:
   * PHP: 8.0.0 - 8.5.x (Bisher: 8.0.0 - 8.4.x)
 * Für Erweiterungen Entwickler ist die Integration der TC Schnittstelle einfacher geworden:
-  * Die Zeile mit der Deklaration für `switch_type` am Anfang des Templates entfällt komplett, also `{% set switch_type = ...`.
-  * Der dritte Parameter bei `switch(name, checked, type)` ist bei sämtlichen Schaltern nur noch optional und wird nicht mehr zwingend benötigt. Für Abwärtskompatibilität ist der Parameter aber weiterhin funktionsfähig. Somit reduziert sich der Makro Aufruf auf das Nötigste.
-  * Die oben genannten Eigenschaften sind deswegen nicht mehr nötig, da TC jetzt eine echte globale Template Variable generieren kann, die auch im Makro verfügbar ist. Es muss also lediglich das neue `switch()` Makro integriert werden um TC Kompatibilität zu schaffen, um alles Weitere kümmert sich das Makro.
-* Bisher hatte TC im eigenen ACP Modul unabhängig vom Aktivierungszustand der TC Funktion immer den eingestellten Schalter-Stil angewendet. Jetzt verhält sich TC auch beim eigenen ACP Modul konsequent wie jeder andere Erweiterung, das heisst der eingestellte Schalter-Stil wird nur noch dann angewendet, wenn die TC Funktion auch aktiviert ist. Ansonsten gilt der Standard, also `toggle`.
+  * Die Zeile mit der Deklaration für `switch_type` am Anfang des Templates entfällt komplett, also `{% set switch_type = TOGGLECTRL_TYPE ?? 'toggle' %}`.
+  * Der dritte Parameter bei `switch(name, checked, type)` ist bei sämtlichen Schaltern nur noch optional und wird nicht mehr zwingend benötigt. Somit reduziert sich der Makro Aufruf auf das Nötigste. Für Abwärtskompatibilität ist der Parameter aber weiterhin funktionsfähig.
+  * Die oben genannten Eigenschaften sind deswegen nicht mehr nötig, da TC jetzt eine echte globale Template Variable generieren kann, die auch im Makro verfügbar ist. Es muss also lediglich das neue `switch()` Makro integriert werden um TC Kompatibilität zu schaffen; um alles Weitere kümmert sich das Makro.
+* Änderungen im ACP-Modul:
+  * Nach dem Vorbild von Kirks Erweiterungen erscheint im ACP Modul oben in der Hinweis Box ein erklärender Text, wenn die TC Funktion deaktiviert wurde.
+  * Bisher hatte TC im eigenen ACP Modul unabhängig vom Aktivierungszustand der TC Funktion immer den eingestellten Schalter-Stil angewendet. Jetzt verhält sich TC auch beim eigenen ACP Modul konsequent wie jeder andere Erweiterung, das heisst der eingestellte Schalter-Stil wird nur noch dann angewendet, wenn die TC Funktion auch aktiviert ist. Ansonsten gilt der Standard, also `toggle`.
 
 ### 1.2.0
 (2025-10-20)

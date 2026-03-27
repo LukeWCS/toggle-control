@@ -42,7 +42,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, [
 	// language pack author
 	'TOGGLECTRL_LANG_DESC'					=> 'English',
-	'TOGGLECTRL_LANG_VER'	 				=> '1.0.0',
+	'TOGGLECTRL_LANG_VER'	 				=> '1.3.0',
 	'TOGGLECTRL_LANG_AUTHOR'	 			=> 'LukeWCS',
 
 	// messages

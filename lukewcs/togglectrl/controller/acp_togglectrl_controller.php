@@ -49,10 +49,13 @@ class acp_togglectrl_controller
 			trigger_error($this->language->lang('TOGGLECTRL_MSG_SAVED_SETTINGS') . adm_back_link($this->u_action));
 		}
 
-		$lang_outdated_msg = $this->lang_ver_check_msg('TOGGLECTRL_LANG_VER', 'TOGGLECTRL_MSG_LANGUAGEPACK_OUTDATED');
-		if ($lang_outdated_msg)
+		if ($lang_outdated_msg = $this->lang_ver_check_msg('TOGGLECTRL_LANG_VER', 'TOGGLECTRL_MSG_LANGUAGEPACK_OUTDATED'))
 		{
 			$notes[] = $lang_outdated_msg;
+		}
+		if (!$this->config['togglectrl_enabled'])
+		{
+			$notes[] = $this->language->lang('TOGGLECTRL_MSG_DISABLED_HINT');
 		}
 
 		$this->template->assign_vars([
