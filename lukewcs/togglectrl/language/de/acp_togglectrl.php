@@ -54,5 +54,5 @@ $lang = array_merge($lang, [
 	'TOGGLECTRL_TYPE_RADIO'			=> 'Radio Knöpfe (phpBB Standard)',
 
 	'TOGGLECTRL_MSG_SAVED_SETTINGS'	=> 'Toggle Control: Einstellungen erfolgreich gespeichert',
-	'TOGGLECTRL_MSG_DISABLED_HINT'	=> 'Hinweis: Die Funktion dieser Erweiterung ist deaktiviert, es gilt der Schalter-Stil Standard der jeweiligen Erweiterungen Entwicker.',
+	'TOGGLECTRL_MSG_DISABLED_HINT'	=> 'Hinweis: Die Funktion dieser Erweiterung ist deaktiviert, es gilt der Standard der jeweiligen Erweiterung.',
 ]);

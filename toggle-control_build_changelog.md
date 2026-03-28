@@ -1,10 +1,14 @@
+#### 1.3.0-b4
+* Sprachdateien:
+  * Vorschlag von Udo übernommen bezüglich Meldung bei deaktivierter Funktion.
+
 #### 1.3.0-b3
 * Im Listener die Klassenvariable `$this->twig_env` auf `$this->twig` geändert, da dies auch in der Twig Doku so gezeigt wird und sich ebenso im phpBB Core wiederfindet.
 * ACP-Template:
   * Nach dem Vorbild von Kirks Erweiterungen erscheint im ACP Modul oben in der Hinweis Box ein erklärender Text, wenn die TC Funktion deaktiviert wurde.
 * Sprachdateien:
-  * Neue Variable für den Hinweis bei deaktivierter Ext.
-  * Den deutschen Titel präzisiert und "Schalter Steuerung" auf "Schiebeschalter Steuerung" geändert. Somit passt diese jetzt auch zur entsprechenden `select` Option.
+  * Neue Variable für den Hinweis bei deaktivierter Funktion.
+  * Den deutschen Titel präzisiert und "Schalter Steuerung" auf "Schiebeschalter Steuerung" geändert. Somit passt dieser jetzt auch zur entsprechenden `select` Option.
   * Mindestversion des Sprachpakets auf 1.3.0 erhöht.
 
 #### 1.3.0-b2
