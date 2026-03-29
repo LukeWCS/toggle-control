@@ -1,3 +1,7 @@
+#### 1.3.0-b5
+* Fix: Den Fehler `Fatal error: Uncaught LogicException: Unable to add global "TOGGLECTRL_TYPE" ...` behoben, der in der Benutzerverwaltung beim Zugriff auf Profil und Avatar verursacht wurde.
+* Bedingt durch den Fix im Listener, die Anzahl der Event-Hooks von 3 auf 1 reduziert.
+
 #### 1.3.0-b4
 * Sprachdateien:
   * Vorschlag von Udo übernommen bezüglich Meldung bei deaktivierter Funktion.

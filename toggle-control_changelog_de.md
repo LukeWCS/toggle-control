@@ -11,6 +11,12 @@
 * Änderungen im ACP-Modul:
   * Nach dem Vorbild von Kirks Erweiterungen erscheint im ACP Modul oben in der Hinweis Box ein erklärender Text, wenn die TC Funktion deaktiviert wurde.
   * Bisher hatte TC im eigenen ACP Modul unabhängig vom Aktivierungszustand der TC Funktion immer den eingestellten Schalter-Stil angewendet. Jetzt verhält sich TC auch beim eigenen ACP Modul konsequent wie jeder andere Erweiterung, das heisst der eingestellte Schalter-Stil wird nur noch dann angewendet, wenn die TC Funktion auch aktiviert ist. Ansonsten gilt der Standard, also `toggle`.
+* Danke bezüglich dem Beta Bug an:
+  * Dref (phpBB.de) der in der 1.3.0 Beta einen Fehler entdeckt hat, wodurch in der Benutzerverwaltung ein Zugriff auf die Avatar Einstellungen nicht mehr möglich war und ein schwerer Fehler verursacht wurde: `Fatal error: Uncaught LogicException: Unable to add global "TOGGLECTRL_TYPE" ...`.
+  * Mike-on-Tour (phpBB.de) für den Hinweis, dass in der Benutzerverwaltung ein Zugriff auf die Profil Einstellungen ebenfalls diesen Fehler verursacht.
+  * Kirk (phpBB.de) für die Lösung. Wenn man statt des Events `core.adm_page_header` das Event `core.twig_environment_render_template_before` benutzt, funktioniert TC wie es soll, ohne in der Benutzerverwaltung Fehler zu verursachen. Prost Udo! :-)
+* Da durch den Beta Fix das neu hinzugefügte Event ohnehin immer ausgeführt wird, wurden bei der Gelegenheit gleich die bisherigen 3 Event-Hooks des Listener auf 1 reduziert. Somit wird auch automatisch ein Vorschlag von Mike realisiert:
+  * Die Template Variable ebenfalls im Foren Frontend generieren.
 
 ### 1.2.0
 (2025-10-20)
