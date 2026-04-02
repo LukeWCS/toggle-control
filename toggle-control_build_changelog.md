@@ -1,3 +1,8 @@
+### 1.3.0
+* Release (2026-04-02)
+* ACP-Template:
+  * Makro `notes()` überarbeitet. Sind 2 oder mehr Hinweise/Anmerkungen vorhanden, wird vor jedem Hinweis ein `&bull;` Zeichen eingefügt.
+
 #### 1.3.0-b5
 * Fix: Den Fehler `Fatal error: Uncaught LogicException: Unable to add global "TOGGLECTRL_TYPE" ...` behoben, der in der Benutzerverwaltung beim Zugriff auf Profil und Avatar verursacht wurde.
 * Bedingt durch den Fix im Listener, die Anzahl der Event-Hooks von 3 auf 1 reduziert.

@@ -27,9 +27,6 @@ class listener implements EventSubscriberInterface
 	public static function getSubscribedEvents(): array
 	{
 		return [
-			// 'core.adm_page_header'						=> 'generate_template_vars',
-			// 'core.modify_mcp_modules_display_option'	=> 'generate_template_vars',
-			// 'core.ucp_display_module_before'			=> 'generate_template_vars',
 			'core.twig_environment_render_template_before' => 'generate_template_vars',
 		];
 	}
