@@ -1,3 +1,11 @@
+### 1.3.1
+(2026-04-07)
+
+* Fallback bei unbekanntem Schalter-Stil:
+  * Bei einem Experiment mit einer Schalter-Stil Variante ist aufgefallen, dass das `switch()` Makro keinen Fallback hat, der bei einem unbekannten Wert von `TOGGLECTRL_TYPE` auf den Standard (`toggle`) ausweicht. Das könnte beim Endbenutzer dafür sorgen, dass ein ACP Modul einer TC-kompatiblen Erweiterung gar keine Schalter generiert und die entsprechenden Stellen einfach leer lässt, wenn die entsprechende Erweiterung noch nicht an die neue TC Version angepasst ist. Ein Fallback verhindert einen solchen Fall und aktiviert automatisch den Standard Schalter-Stil, wodurch zumindest gewährleistet wird, dass immer Schalter generiert werden, auch wenn diese nicht dem gewünschten Stil entsprechen.
+  * Für Entwickler ändert sich durch den Fallback bei Nutzung der manuellen Übersteuerung nichts. Das heisst das Makro verhält sich hier wie bisher und generiert bewusst keine Schalter, wenn der Schalter-Stil lokal mit einem falschen Wert übersteuert wird, also bei Nutzung des dritten Makro-Parameters `type.` So erkennt der Entwickler sofort, wenn in seinem Template Code ein Fehler vorliegt.
+* Um den Stand des Makros `switch()` einfacher erkennen und zuordnen zu können, ist ab sofort innerhalb des Makros eine Versionsnummer zu finden, die derjenigen Version von Toggle Control entspricht, bei der das Makro zuletzt geändert wurde.
+
 ### 1.3.0
 (2026-04-02)
 

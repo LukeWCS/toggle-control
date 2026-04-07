@@ -1,3 +1,9 @@
+### 1.3.1
+* Release (2026-04-07)
+* `switch()` Makro:
+  * Fallback im `switch()` Makro eingebaut, falls über die globale Variable `TOGGLECTRL_TYPE` ein Wert geliefert wird, den das Makro nicht kennt.
+  * TC Version als Kommentar eingefügt.
+
 ### 1.3.0
 * Release (2026-04-02)
 * ACP-Template:
